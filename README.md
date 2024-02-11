@@ -18,7 +18,7 @@
 
 v9 | v10
 :-------------------------:|:-------------------------:
-[![subject-old](https://img.shields.io/badge/subject-ft_printf_v09-blueviolet)](https://github.com/f-corvaro/42.common_core/blob/main/01-ft_printf/.extra/en.subject.pdf) | [![subject-new](https://img.shields.io/badge/subject-ft_printf_v10-blueviolet)](https://github.com/f-corvaro/42.common_core/blob/main/01-ft_printf/.extra/en.subject(new).pdf)
+[![subject-old](https://img.shields.io/badge/subject-ft_printf_v09-blueviolet)](https://github.com/f-corvaro/FT_PRINTF/blob/main/.extra/en.subject.pdf) | [![subject-new](https://img.shields.io/badge/subject-ft_printf_v10-blueviolet)](https://github.com/f-corvaro/FT_PRINTF/blob/main/.extra/en.subject(new).pdf)
 
 </div>
 
@@ -28,6 +28,7 @@ v9 | v10
 </div>
 
 <p align="center">
+
 **WARNING:** *Before the push, you need to check where the moulinette will be executed. There is a difference in length and information printed in the return of printf, and it depends on the macOS or Ubuntu system. If you choose  ft_printf_100, you need to check where moulinette runs. Otherwise, if you choose ft_printf_125, there are two macro conditions that will validate your project with 125 in both systems.*
 
 </p>
@@ -329,7 +330,7 @@ There are 3 length sub-specifiers:
 
 <p align="justify">
 
-To test this project, you need to create a ```main.c``` file, you can find a little example [here](https://github.com/f-corvaro/42.common_core/blob/main/01-ft_printf/main.c). I tested only this specifier because I had problems with this, you can implement all test you want. Then you need to run ```make all```, and then compile:
+To test this project, you need to create a ```main.c``` file, you can find a little example [here](https://github.com/f-corvaro/FT_PRINTF/blob/main/main.c). I tested only this specifier because I had problems with this, you can implement all test you want. Then you need to run ```make all```, and then compile:
 
 •	**macOS:** ```gcc main.c libftprintf.a```. And run the ```a.out``` file.
 	The output is:
@@ -408,8 +409,8 @@ category: mix
 ## Evaluation
 
 ### Correction sheet
-<a href="https://github.com/f-corvaro/42.common_core/tree/main/01-ft_printf"><img width="650" src="https://github.com/f-corvaro/42.common_core/blob/main/01-ft_printf/.extra/eval_10-2023.png">
-<a href="https://github.com/f-corvaro/42.common_core/tree/main/01-ft_printf"><img width="650" src="https://github.com/f-corvaro/42.common_core/blob/main/01-ft_printf/.extra/eval_10-2023(2).png">
+<a href="https://github.com/f-corvaro/FT_PRINTF/tree/main"><img width="650" src="https://github.com/f-corvaro/FT_PRINTF/blob/main/.extra/eval_10-2023.png">
+<a href="https://github.com/f-corvaro/FT_PRINTF/tree/main"><img width="650" src="https://github.com/f-corvaro/FT_PRINTF/blob/main/.extra/eval_10-2023(2).png">
 </p>
 <br>
 
@@ -427,7 +428,7 @@ OK!
 
 I made this project three times, the first one I failed because I did only the mandatory part and I worked on an Ubuntu system, so I failed for the condition void pointer. The second time I fixed the problem, I received a 100.
 
-<a href="https://projects.intra.42.fr/projects/42cursus-ft_printf/projects_users/3069521"><img align="center" src="https://github.com/f-corvaro/42.common_core/blob/main/01-ft_printf/.extra/moulinette.png">
+<a href="https://projects.intra.42.fr/projects/42cursus-ft_printf/projects_users/3069521"><img align="center" src="https://github.com/f-corvaro/FT_PRINTF/blob/main/.extra/moulinette.png">
 
 The third time I made the bonus part, I got a 125. You can check it out on my intra page.
 
