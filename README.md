@@ -57,7 +57,6 @@ v9 | v10
   <a href="#support-me">Support Me</a><br>
   <a href="#skills-developed">Skills developed</a><br>
   <a href="#sources">Sources</a><br>
-  <a href="#license">License</a><br>
   <a href="#author">Author</a>
 </p>
 
@@ -497,13 +496,6 @@ If you want to support me:</p>
 - [printf 1](https://en.wikipedia.org/wiki/Printf)
 - [printf 2](https://www.geeksforgeeks.org/printf-in-c/)
 - [static library](https://dev.to/iamkhalil42/all-you-need-to-know-about-c-static-libraries-1o0b)
-<br>
-
-## License
-<p align="center">
-<a href="https://choosealicense.com/licenses/mit/"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="MIT License"></a>
-<a href="https://opensource.org/licenses/"><img src="https://img.shields.io/badge/License-GPL%20v3-yellow.svg" alt="GPLv3 License"></a>
-<a href="http://www.gnu.org/licenses/agpl-3.0"><img src="https://img.shields.io/badge/license-AGPL-blue.svg" alt="AGPL License"></a>
 <br>
 
 ## Author
