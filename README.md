@@ -1,8 +1,4 @@
-<h1 align="center">FT_PRINTF</h1>
-
-<div align="center">
-<a href="https://github.com/f-corvaro/FT_PRINTF"><img src="https://github.com/f-corvaro/FT_PRINTF/blob/main/.extra/ft_printf_intra.png"></a>
-</div>
+<h1 align="center"><a href="https://github.com/f-corvaro/FT_PRINTF"><img src="https://github.com/f-corvaro/FT_PRINTF/blob/main/.extra/ft_printf.png"></a></h1>
 
 <p align="center">
 	<b><i>"Custom printf implementation"</i></b><br>
