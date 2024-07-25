@@ -19,13 +19,13 @@ v9 | v10
 </div>
 
 <div align="center">
-<table><tr><td>This guide is made for the subject v10, there aren't differences between the two subjects</td></tr></table>
+<table><tr><td>This guide is for subject v10. There are no differences between the two subjects.</td></tr></table>
 
 </div>
 
 <p align="center">
 
-**WARNING:** *Before the push, you need to check where the moulinette will be executed. There is a difference in length and information printed in the return of printf, and it depends on the macOS or Ubuntu system. If you choose  ft_printf_100, you need to check where moulinette runs. Otherwise, if you choose ft_printf_125, there are two macro conditions that will validate your project with 125 in both systems.*
+**WARNING:** *Before pushing, ensure you know where the moulinette will be executed. The length and information printed by `printf` can differ between macOS and Ubuntu systems. If you choose `ft_printf_100`, verify where the moulinette runs. For `ft_printf_125`, there are two macro conditions that will validate your project on both systems.*
 
 </p>
 <br>
@@ -33,30 +33,60 @@ v9 | v10
 <h3 align="center">Index</h3>
 
 <p align="center">
-  <a href="#ft_printf">FT_PRINTF</a><br>
-  <a href="#index">Index</a><br>
-  <a href="#folder-structure">Folder Structure</a><br>
-  <a href="#about">About</a><br>
-  <a href="#bonus-part">Bonus Part</a><br>
-  <a href="#what-i-need-to-know">What I need to know?</a><br>
-  <a href="#makefile">Makefile</a><br>
-  <a href="#how-to-handle-variable-argument-list-">How to handle variable argument list?</a><br>
-  <a href="#printf">printf</a><br>
-  <a href="#running-tests">Running Tests</a><br>
-  <a href="#testing-mandatory-part">Testing mandatory part</a><br>
-  <a href="#tester">Tester</a><br>
-  <a href="#evaluation">Evaluation</a><br>
-  <a href="#correction-sheet">Correction sheet</a><br>
-  <a href="#norminette-result">Norminette Result</a><br>
-  <a href="#moulinette-result">Moulinette Result</a><br>
-  <a href="#treasure-hunt">Treasure hunt</a><br>
-  <a href="#support-me">Support Me</a><br>
-  <a href="#skills-developed">Skills developed</a><br>
-  <a href="#sources">Sources</a><br>
-  <a href="#author">Author</a>
+ <a href="#introduction">Introduction</a><br>
+ <a href="#overview">Overview</a><br>
+ <a href="#folder-structure">Folder Structure</a><br>
+ <a href="#project-requirements---mandatory-part">Project Requirements - Mandatory Part</a><br>
+ <a href="#important-guidelines">Important Guidelines</a><br>
+ <a href="#project-requirements">Project Requirements</a><br>
+ <a href="#library-name">Library Name</a><br>
+ <a href="#submission-files">Submission Files</a><br>
+ <a href="#required-makefile-rules">Required Makefile Rules</a><br>
+ <a href="#allowed-external-functions">Allowed External Functions</a><br>
+ <a href="#ft_printf-prototype">`ft_printf()` Prototype</a><br>
+ <a href="#project-requirements---bonus-part">Project Requirements - Bonus Part</a><br>
+ <a href="#bonus-list">Bonus List</a><br>
+ <a href="#theoretical-background">Theoretical Background</a><br>
+ <a href="#understanding-printf-in-c">Understanding `printf` in C</a><br>
+ <a href="#return-value">Return Value</a><br>
+ <a href="#flags-and-witdth-modifiers">Flags and Width Modifiers</a><br>
+ <a href="#variadic-functions">Variadic Functions</a><br>
+ <a href="#static-libraries">Static Libraries</a><br>
+ <a href="#makefile-cross-platform-compatibility-integration-with-other-projects">Makefile: Cross-Platform Compatibility, Integration with Other Projects</a><br>
+ <a href="#executing-tests">Executing Tests</a><br>
+ <a href="#testing-the-mandatory-part">Testing the Mandatory Part</a><br>
+ <a href="#tester">Tester</a><br>
+ <a href="#memory-leak-detection-with-valgrind">Memory Leak Detection with Valgrind</a><br>
+ <a href="#installation">Installation</a><br>
+ <a href="#usage">Usage</a><br>
+ <a href="#evaluation-process">Evaluation Process</a><br>
+ <a href="#correction-sheet">Correction Sheet</a><br>
+ <a href="#moulinette-feedback">Moulinette Feedback</a><br>
+ <a href="#developed-skills">Developed Skills</a><br>
+ <a href="#references">References</a><br>
+ <a href="#support-and-contributions">Support and Contributions</a><br>
+ <a href="#author">Author</a><br>
+</p>
+<br>
+
+## Introduction
+
+<p align="justify">
+
+The ft_printf project is a part of the curriculum at 42 school, aimed at teaching students the intricacies of implementing their own version of the printf function. The project involves creating a library, that includes libft, which mimics the functionality of the original printf function from the C standard library.  
+
 </p>
 
-<br>
+### Overview
+
+<p align="justify">
+
+Students are required to handle various format specifiers, such as %c, %s, %d, %i, %u, %x, %X, and %%, as well as manage flags and field width options. The project also introduces students to the concept of variadic functions and the use of the va_start, va_arg, va_copy, and va_end macros. 
+
+By completing this project, students gain a deeper understanding of string formatting and the inner workings of printf-like functions.
+
+</p>
+</br>
 
 ## Folder Structure
 
@@ -103,190 +133,133 @@ v9 | v10
 │   └── README.md
 ```
 
-## About
+</br>
+
+## Project Requirements - Mandatory Part
+
+### Important Guidelines:
 
 <p align="justify">
 
-This assignment is made with the purpose of write a library that contains ft_printf(), a function that will mimic the original printf() from libc. I will use the libft library with the purpose of recreate my own library for the next projects. An in-depth study is about the variadic functions. Furthermore, you need to understand how to include a static library in another.
+- This project must be written in C.
+- Must adhere to the Norm.
+- The function should not quit unexpectedly (segmentation fault, bus error, double free, etc.) except for undefined behaviors.
+- All heap-allocated memory must be properly freed when necessary. No memory leaks allowed.
+- The Makefile to submit must compile the source files with the flags `-Wall -Werror -Wextra` using the `cc` compiler. The Makefile must not relink.
+- The `libft` is allowed in this project. You must copy its sources and its associated Makefile into a `libft` folder.
 
 <p>
 <br>
 
-**Some rules to keep in mind:** <p align="justify">
-• This project must be written in C
+### Project Requirements: 
 
-• Must be written in accordance with the Norm
+<p align="justify">
 
-• The function should not quit unexpectedly (segmentation fault, bus error, double free, etc) apart from undefined behaviors
-
-• All heap allocated memory space must be properly freed when necessary. No leaks allowed
-
-• The Makefile to submit must compile the source files with the flags -Wall -Werror -Wextra and using cc compiler. The Makefile must not relink
-
-• The libft is allowed in this project, you must copy its sources and its associated Makefile in a libft folder.
-
-<p>
-<br>
-
-**Requirements:** <p align="justify">
-• Don’t implement the buffer management of the original printf()
-
-• Your function has to handle the following conversions: ```cspdiuxX%```
-
-• Your function will be compared against the original printf()
-
-• You must use the command ar to create your library. Using the libtool command is forbidden
-
-• Your libftprintf.a has to be created at the root of your repository
+- Do not implement the buffer management of the original `printf()`.
+- Your function must handle the following conversions: `cspdiuxX%`.
+- Your function will be compared against the original `printf()`.
+- You must use the `ar` command to create your library. Using the `libtool` command is forbidden.
+- Your `libftprintf.a` must be created at the root of your repository.
 
 You have to implement the following conversions:
 
 | Format specifier | Data type |
 | ---------------- | --------- |
-| ```%c``` | single character |
-| ```%s``` | string |
-| ```%p``` | The void * pointer argument has to be printed in hexadecimal format |
-| ```%d``` | decimal (base 10) number |
-| ```%i``` | integer in base 10 |
-| ```%u``` | unsigned decimal (base 10) number |
-| ```%x``` | number in hexadecimal (base 16) lowercase format |
-| ```%X``` | number in hexadecimal (base 16) uppercase format |
-| ```%%``` | Percent sign |
-
-<p>
-<br>
-
-**Program name:** <p align="justify">
-```libftprintf.a```
+| `%c` | single character |
+| `%s` | string |
+| `%p` | The `void *` pointer argument must be printed in hexadecimal format |
+| `%d` | decimal (base 10) number |
+| `%i` | integer in base 10 |
+| `%u` | unsigned decimal (base 10) number |
+| `%x` | number in hexadecimal (base 16) lowercase format |
+| `%X` | number in hexadecimal (base 16) uppercase format |
+| `%%` | Percent sign |
 
 </p>
 <br>
 
-**Files to turn in it:** <p align="justify">
-```Makefile, *.h, */*.h, *.c, */*.c```
+### Library Name: 
 
-So you can create your own directory with the name you prefer, and the same is true for the .h and .c files that can be stored in a directory.
+`libftprintf.a`
 
-</p>
-<br>
+### Submission Files:
 
-**Makefile rules required:** <p align="justify">
-```NAME, all, clean, fclean, re```
+`Makefile, *.h, */*.h, *.c, */*.c`
 
-The same rules were followed for the libft project.
+ <p align="justify">
 
-</p>
-<br>
+ You can create your own directory with any name you prefer. The same applies to the `.h` and `.c` files, which can be stored in any directory.
 
-**External functions allowed:** <p align="justify">
-```malloc, free, write, va_start, va_arg, va_copy, va_end```
+ </p>
 
-</p>
-<br>
+### Required Makefile Rules:
 
-**The prototype of ft_printf() is:** <p align="justify">
-```int	ft_printf(const char *, ...);```.
-
-Basically, how does it works? ```ft_printf()``` takes two arguments: The first one is a string that specifies how the output should be formatted. Second one is a variable number of arguments, which are the values that will be formatted and printed (so, how the real one function works).
+`NAME, all, clean, fclean, re`
 
 </p>
-<br>
 
-## Bonus Part
+### Allowed External Functions: 
+
+`malloc, free, write, va_start, va_arg, va_copy, va_end`
+
+</p>
+
+### `ft_printf()` Prototype: 
+
+`int	ft_printf(const char *, ...);`
 
 <p align="justify">
 
-You don't have to do all the bonuses. You can choose between:
-
-**Bonus list:** <p align="justify">
-
-• Manage any combination of the following flags: ’-0.’ and the field minimum width under all conversions.
-
-• Manage all the following flags: ’# +’ (Yes, one of them is a space).
-
-| Format specifier | Data type |
-| ---------------- | --------- |
-| ```%0``` | When the 'width' option is specified, prepends zeros for numeric types. (The default prepends spaces).
-For example, printf("%4X",3) produces    3, while printf("%04X",3) produces 0003. |
-| ```%-``` | Left-align the output of this placeholder. (The default is to right-align the output.) |
-| ```%.``` | The void * pointer argument has to be printed in hexadecimal format |
-
-| Format specifier | Data type |
-| ---------------- | --------- |
-| ```%(space)``` | Prepends a space for positive signed-numeric types. positive =  , negative = -. This flag is ignored if the + flag exists. (The default doesn't prepend anything in front of positive numbers.) |
-| ```%#``` | For g and G types, trailing zeros are not removed. For f, F, e, E, g, G types, the output always contains a decimal point. For o, x, X types, the text 0, 0x, 0X, respectively, is prepended to non-zero numbers. |
-| ```%+``` | show always the sign of the number (is hidden for positive numbers to default) |
-
-
-<p>
-<br>
-
-## What I need to know?
-
-### Makefile<p align="justify">
-This project is the "first one" that grants an understandjng of the utility of the Makefile and how to use it correctly. So, you must understand the syntax and how it works. Personally, I implemented the libft project, so I will have a good start for the next projects. I made two directories, one for libft (with .c, .h and Makefile files/file) and one for ft_printf (with .c and .h files/file). A ***Makefile*** is a special file that contains instructions on how to build a software project. It is used by the ```make``` utility to automate the build process. This file consists of a set of rules, each of which specifies how to build a particular target. A target can be anything from a binary executable file to a library to a documentation file.
-</p>
-
-**How it works? | Syntax of Makefile:** <p align="justify">
-The ***comments*** are made with one hash (#), it is a good norm to divide the parts of the Makefile with ***commented titles***. We are using Makefile to create ```libftprintf.a```, ***archive libraries*** that are statically linked, so changes mean recompiling. The brackets ```()``` are used to group commands together. Instead, ```{}```are used to define variables. The ```ar rcs``` is GNU command wich is used to create and manage archives with his own flags.
-
-```
-#r tells ar to replace any existing members of the archive with the specified
-#object files.
-#c tells ar to create the archive if it doesn't exist.
-#s tells ar to create an index of the archive members.
-```
-
-<p align="justify">
-
-The rule ```.PHONY``` is used to identify ***false targets***, that represent a group of commands or actions. To create a false target, you need to declare it as a target in your Makefile.
-
-<p align="justify">
-
-```@$(AR)``` the ```@``` is used in Makefiles to suppress the output of a command (so it will not be displayed in the terminal).
-
-<p align="justify">
-
-```@$(MAKE) -C $(LIBFT_PATH)```. The ```-C``` flag is used to specify the directory in which the make command should be executed.
-
-```
-%.o: 		$(FT_PRINTF)/%.c
-				@$(CC) $(CFLAGS) -c $< -o $@
-```
-<p align="justify">
-
-The ```%.o:``` is the target pattern. The first row rappresent a pre-requisite needed (.c files into FT_PRINTF directory). ``` -c```  flag tells the compiler to not to link the object file with any other object files or libraries. So, it means that the compiler will only create an object file from the source file. ``` -o``` flag tells the name of the object file to create (that is the same of .c file name, but will be .o).
-
-<br>
-
-### How to handle variable argument list? <p align="justify">
-The variable argument list is handled thankfully to a **variadic functions**. These functions can take a variable number of argument, this is done by using the ellipsis (...) operator in the function declaration (for us is ft_printf()). To call a variadic function, you must use the ```va_start(), va_arg(), and va_end()``` macros. These macros are defined in the ```<stdarg.h>``` header file. The ```va_start()``` macro must be called first, before any calls to ```va_arg()```. It initializes a variable of type ```va_list``` to point to the first argument in the variable argument list. The ```va_arg()``` macro is used to retrieve the next argument from the variable argument list. It takes two arguments:
-
-1. A pointer to a va_list variable.
-
-2. The type of the argument to retrieve.
-
-```va_arg()``` returns the value of the next argument in the variable argument list, converted to the specified type.
-
-The ```va_end()``` macro must be called last, after all calls to ```va_arg()```. It cleans up the va_list variable and makes it unusable.
-If you forget to call ```va_end()```, you can cause the program to crash. The ```va_copy()``` macro creates a copy of a va_list variable. This can be useful if you need to iterate over the variable argument list multiple times. Here are some things to keep in mind when using ```va_copy()```:
-
-- Make sure to call ```va_copy()``` after ```va_start()``` and before any calls to ```va_arg()```.
-- Make sure to call ```va_end()``` on all ```va_list``` variables, even if you are using ```va_copy()```.
-- Do not call ```va_copy()``` on a ```va_list``` variable that has already been initialized with ```va_end()```.
-
-An in-depth example:
-The ```va_list	args;``` macro is used to declare a variable that will hold the list of arguments passed to the function. The norm provides the name of the variable, and it is called: args. The ```va_start(args, spec);``` macro is used to initialize the ```va_list``` variable, so the first variable is the ```va_list``` variable, and the second one must be a non variadic argument. In this case, spec is a ```const char *spec```. The ```va_arg``` macro is used to retrieve the next argument from the ```va_list```. Could be imagined as a ring chain. The syntax is ```va_arg(args, unsigned int)```, so you need to specify the va_list variable and the type of the argument retrieved. The ```va_end``` macro must be called to clean up the ```va_list``` variable after all arguments have been retrieved.
+Basically, how does it work? `ft_printf()` takes two arguments: The first is a string that specifies how the output should be formatted. The second is a variable number of arguments, which are the values that will be formatted and printed (similar to how the real `printf()` function works).
 
 </p>
 <br>
 
-### printf
+## Project Requirements - Bonus Part
 
 <p align="justify">
 
-Printf return an integer value that represents the total number of characters successfully printed to the standard output. If there is an error during the printing process, a negative value is returned. You can test it:
-```C
+You don't have to complete all the bonuses. You can choose from the following options:
+
+### Bonus List:
+
+<p align="justify">
+
+- Handle any combination of the following flags: `-0.` and the field minimum width for all conversions.
+ | Flag | Description |
+ | ---- | ----------- |
+ | `%0` | When the 'width' option is specified, prepends zeros for numeric types (default prepends spaces). For example, `printf("%4X", 3)` produces `   3`, while `printf("%04X", 3)` produces `0003`. |
+ | `%-` | Left-aligns the output of this placeholder (default is right-aligned). |
+ | `%.` | Specifies precision for numeric types. |
+
+- Handle all the following flags: `# +` (Note: one of them is a space).
+
+ | Flag | Description |
+ | ---- | ----------- |
+ | `% (space)` | Prepends a space for positive signed-numeric types. Positive = ` `, Negative = `-`. Ignored if the `+` flag is present (default doesn't prepend anything for positive numbers). |
+ | `%#` | For `g` and `G` types, trailing zeros are not removed. For `f`, `F`, `e`, `E`, `g`, `G` types, the output always contains a decimal point. For `o`, `x`, `X` types, `0`, `0x`, `0X` respectively are prepended to non-zero numbers. |
+ | `%+` | Always shows the sign of the number (default hides the sign for positive numbers). |
+
+</p>
+<br>
+
+## Theoretical Background
+
+### Understanding `printf` in C
+
+<p align="justify">
+
+The `printf()` function in C is a widely used function for displaying formatted output on the console. It provides developers with a flexible and convenient way to print various types of data. By using format specifiers such as `%c`, `%s`, `%p`, `%d`, `%i`, `%u`, `%x`, `%X`, and `%%`, programmers can control the formatting of the output and make it more readable. With the `printf()` function, developers can create well-formatted and visually appealing console displays.
+
+</p>
+
+#### Return Value
+
+<p align="justify">
+
+`printf` returns an integer value that represents the total number of characters successfully printed to the standard output. If there is an error during the printing process, a negative value is returned. You can test it with the following example:
+
+```c
 int	main(void)
 {
 	#include <stdio.h>
@@ -302,33 +275,81 @@ int	main(void)
 }
 ```
 
-**Syntax:** ```%[flags][width][.precision][length]specifier```
+#### Flags and Witdth Modifiers
 
-0. % Is used before the specifier and we must.
-1. Specifier: It is the character that denotes the type of data.
-2. Width: It is the sub-specifier that denotes the minimum number of characters that will be printed. If the number of characters is less than the specified width, the white space will be used to fill the remaining characters’ places. But if the number of characters is greater than the specified width, all the characters will be still printed without cutting off any.
-3. Precision: Precision subspecifier meaning differs for different format specifiers it is being used with. For Integral data(d, i, u, o, x, X): Specifies the minimum number of digits to be printed. But unlike the width sub-specifier, instead of white spaces, this sub-specifier adds leading zeroes to the number. If the number has more digits than the precision, the number is printed as it is. For Float or Double Data(f, e, a, A): Specifies the number of digits to be printed after the decimal point. For String (s): Specifies the length of the string to be printed.
-4. Length: Specifies the length of the data type in the memory. It is used in correspondence with data type modifiers.
+**Syntax:**
 
-There are 3 length sub-specifiers:
+ ```%[flags][width][.precision][length]specifier```
 
-	h: With short int and unsigned short int
-	l: With long int and unsigned long int.
-	L: With long double
+1. **%**: Used before the specifier.
+2. **Specifier**: Character that denotes the type of data.
+3. **Width**: Minimum number of characters to be printed. If the number of characters is less than the specified width, white space will fill the remaining places. If the number of characters exceeds the specified width, all characters will be printed without truncation.
+4. **Precision**: Varies by format specifier. For integral data (`d`, `i`, `u`, `o`, `x`, `X`), it specifies the minimum number of digits, adding leading zeroes if necessary. For floating-point data (`f`, `e`, `a`, `A`), it specifies the number of digits after the decimal point. For strings (`s`), it specifies the maximum length of the string to be printed.
+5. **Length**: Specifies the length of the data type in memory, used with data type modifiers.
+
+Length sub-specifiers:
+- **h**: Short int and unsigned short int
+- **l**: Long int and unsigned long int
+- **L**: Long double
+
+Flags and width modifiers are essential features of the `printf()` function in C, allowing developers to control output formatting. Flags modify the behavior of the conversion specifier, while width modifiers specify the minimum field width for the output.
+
+Common flags include:
+- **`-`**: Left-aligns the output.
+- **`0`**: Pads the output with zeros instead of spaces.
+- **`#`**: Adds special formatting to certain specifiers.
+
+Width modifiers set the minimum field width. For example, if the width is 5 and the output is 3 characters long, it will be padded with spaces or zeros to meet the width requirement.
 
 </p>
 <br>
 
-## Running Tests
-
-### Testing mandatory part
+### Variadic Functions
 
 <p align="justify">
 
-To test this project, you need to create a ```main.c``` file, you can find a little example [here](https://github.com/f-corvaro/FT_PRINTF/blob/main/main.c). I tested only this specifier because I had problems with this, you can implement all test you want. Then you need to run ```make all```, and then compile:
+Variadic functions are functions in C that can accept a variable number of arguments. They are useful when the number of arguments or their types are not known in advance. In the context of the ft_printf project for the 42 curriculum, variadic functions are used to handle the variable arguments passed to the ft_printf function. The key functions used to work with variadic arguments are va_start, va_arg, va_copy, and va_end. 
 
-•	**macOS:** ```gcc main.c libftprintf.a```. And run the ```a.out``` file.
-	The output is:
+- `va_start` is used to initialize the argument list. It takes two arguments: the first is the va_list object that will hold the variable arguments, and the second is the last named parameter before the variable arguments.
+
+- `va_arg` is used to retrieve the next argument from the va_list. It takes two arguments: the first is the va_list object, and the second is the type of the argument to retrieve.
+
+- `va_copy` is used to make a copy of the va_list object. It takes two arguments: the first is the destination va_list object, and the second is the source va_list object.
+
+- `va_end` is used to clean up the va_list object. It takes one argument: the va_list object to be cleaned up.
+
+By using these variadic functions, the ft_printf function can handle different format specifiers and their corresponding arguments, allowing for flexible and dynamic formatting of the output. Variadic functions are a powerful tool in C programming, enabling the implementation of functions that can adapt to different input requirements.
+
+</p>
+<br>
+
+### Static Libraries
+
+<p align="justify">
+
+Static libraries play a crucial role in organizing and managing the codebase. A static library, denoted by the `.a` extension, is a collection of precompiled object files that can be linked with other programs at compile time. By creating a static library for ft_printf, we can encapsulate the implementation details of the printf function and provide a clean and modular interface for other programs to use. This allows for code reuse and simplifies the process of incorporating ft_printf into different projects. Additionally, static libraries offer the advantage of faster compilation times, as the library code is already compiled and can be linked directly into the final executable. Overall, static libraries are an essential tool in the development of ft_printf, enabling code organization, reusability, and improved compilation efficiency.
+
+</p>
+<br>
+
+### Makefile: Cross-Platform Compatibility, Integration with Other Projects
+
+<p align="justify">
+
+The Makefile is an essential component in the ft_printf project. It serves as a build automation tool, providing instructions on how to compile and link the source code into the final executable or library. By correctly utilizing the Makefile, developers can easily manage dependencies, compile only the necessary files, and ensure consistent and efficient builds. In the context of ft_printf, the Makefile can be integrated with the existing libft library, allowing for seamless usage of its functions. Additionally, the Makefile ensures cross-platform compatibility, enabling the project to be built and executed on different operating systems. The .PHONY rule in the Makefile is used to define false targets, which represent groups of commands or actions that are not associated with actual files. This allows developers to execute specific tasks without worrying about conflicting file names or dependencies. Overall, the Makefile plays a crucial role in the successful development and deployment of the projects.
+
+</p>
+<br>
+
+## Executing Tests
+
+### Testing the Mandatory Part
+
+<p align="justify">
+
+To test this project, you need to create a `main.c` file. You can find an example [here](https://github.com/f-corvaro/FT_PRINTF/blob/main/main.c). The example focuses on a specific specifier due to encountered issues, but you can implement additional tests as needed. After creating `main.c`, run `make all`, and then compile the code:
+
+- **macOS:** Use `gcc main.c libftprintf.a` to compile. Then, execute the `a.out` file. The expected output is:
 
 ```shell
 e4r4p2% ./a.out
@@ -336,9 +357,9 @@ e4r4p2% ./a.out
  0x0 0x0 fake: 9
 ```
 
-•	**Ubuntu:** ```gcc -c main.c```, then ```gcc main.o libftprintf.a```. The output should be:
+- **Ubuntu:** First, compile with gcc -c main.c, then link with gcc main.o libftprintf.a. The expected output is:
 
-```shell
+```bash
 e4r4p2% ./a.out
 (nil) (nil) real: 13
 (nil) (nil) fake: 13
@@ -348,134 +369,66 @@ e4r4p2% ./a.out
 
 ### Tester
 
-I've used the [printfTester](https://github.com/Tripouille/printfTester) of [Tripouille](https://github.com/Tripouille). **It's very important to test the project in Ubuntu and/or macOS, the tester has different results.**
+<p align="justify">
 
-The command ```valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -s``` is usefull to have a detailed overview of leaks. That's the output:
-
-```shell
-#the command to run
-e4r11p3% valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -s make m
-#the output
-==78927== Memcheck, a memory error detector
-==78927== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==78927== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
-==78927== Command: make m
-==78927==
-Already up to date.
-make[1]: Entering directory '/nfs/homes/fcorvaro/Desktop/print'
-make[2]: Entering directory '/nfs/homes/fcorvaro/Desktop/print/libft'
-make[2]: 'libft.a' is up to date.
-make[2]: Leaving directory '/nfs/homes/fcorvaro/Desktop/print/libft'
-make[1]: Leaving directory '/nfs/homes/fcorvaro/Desktop/print'
-[Mandatory]
-category: c
-1.OK 2.OK 3.OK 4.OK 5.OK 6.OK 7.OK 8.OK 9.OK
-category: s
-1.OK 2.OK 3.OK 4.OK 5.OK 6.OK 7.OK 8.OK 9.OK 10.OK
-category: p
-1.OK 2.OK 3.OK 4.OK 5.OK 6.OK 7.OK 8.OK 9.OK
-category: d
-1.OK 2.OK 3.OK 4.OK 5.OK 6.OK 7.OK 8.OK 9.OK 10.OK 11.OK 12.OK 13.OK 14.OK 15.OK 16.OK 17.OK 18.OK 19.OK 20.OK 21.OK 22.OK 23.OK 24.OK 25.OK 26.OK 27.OK 28.OK 29.OK
-category: i
-1.OK 2.OK 3.OK 4.OK 5.OK 6.OK 7.OK 8.OK 9.OK 10.OK 11.OK 12.OK 13.OK 14.OK 15.OK 16.OK 17.OK 18.OK 19.OK 20.OK 21.OK 22.OK 23.OK 24.OK 25.OK 26.OK 27.OK 28.OK 29.OK
-category: u
-1.OK 2.OK 3.OK 4.OK 5.OK 6.OK 7.OK 8.OK 9.OK 10.OK 11.OK 12.OK 13.OK 14.OK 15.OK 16.OK 17.OK 18.OK 19.OK 20.OK 21.OK 22.OK 23.OK 24.OK 25.OK 26.OK 27.OK 28.OK 29.OK
-category: x
-1.OK 2.OK 3.OK 4.OK 5.OK 6.OK 7.OK 8.OK 9.OK 10.OK 11.OK 12.OK 13.OK 14.OK 15.OK 16.OK 17.OK 18.OK 19.OK 20.OK 21.OK 22.OK 23.OK 24.OK 25.OK 26.OK 27.OK 28.OK 29.OK 30.OK 31.OK
-category: X
-1.OK 2.OK 3.OK 4.OK 5.OK 6.OK 7.OK 8.OK 9.OK 10.OK 11.OK 12.OK 13.OK 14.OK 15.OK 16.OK 17.OK 18.OK 19.OK 20.OK 21.OK 22.OK 23.OK 24.OK 25.OK 26.OK 27.OK 28.OK 29.OK 30.OK 31.OK
-category: %
-1.OK 2.OK 3.OK 4.OK 5.OK 6.OK 7.OK
-category: mix
-1.OK
-==78927== LEAK SUMMARY:
-==78927==    definitely lost: 0 bytes in 0 blocks
-==78927==    indirectly lost: 0 bytes in 0 blocks
-==78927==      possibly lost: 0 bytes in 0 blocks
-==78927==    still reachable: 160,031 bytes in 1,702 blocks
-==78927==         suppressed: 0 bytes in 0 blocks
-==78927==
-==78927== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-```
+I have used the [printfTester](https://github.com/Tripouille/printfTester) by [Tripouille](https://github.com/Tripouille). It is crucial to test the project on both Ubuntu and macOS, as the tester may yield different results on each platform.
 
 </p>
 
+### Memory Leak Detection with Valgrind
 
-## Evaluation
+To find memory leaks and errors, I used `Valgrind`. Below are the steps for installation and usage:
 
-### Correction sheet
+#### Installation
+
+Depending on your Linux distribution, use one of the following commands to install Valgrind:
+
+```shell
+sudo apt install valgrind  # Ubuntu, Debian, etc.
+sudo yum install valgrind  # RHEL, CentOS, Fedora, etc.
+sudo pacman -Syu valgrind  # Arch, Manjaro, Garuda, etc.
+sudo pkg ins valgrind      # FreeBSD
+```
+
+#### Usage
+
+To check for memory leaks and errors, use the following Valgrind command:
+
+```shell
+valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -s ./a.out
+```
+
+- `--leak-check=full`: Perform a detailed memory leak check.
+- `--show-leak-kinds=all`: Show all kinds of leaks, including definitely lost, indirectly lost, possibly lost, and still reachable.
+- `--track-origins=yes`: Track the origins of uninitialized values.
+- `-s`: Provide a summary of the leak check.
+- ADDITIONAL `--log-file`: Directs Valgrind's output to a specified file. This is useful for preserving extensive output that exceeds terminal capacity, allowing for easier review and analysis.
+
+</p>
+<br>
+
+## Evaluation Process
+
+### Correction Sheet
 <a href="https://github.com/f-corvaro/FT_PRINTF/tree/main"><img width="650" src="https://github.com/f-corvaro/FT_PRINTF/blob/main/.extra/eval_10-2023.png">
 <a href="https://github.com/f-corvaro/FT_PRINTF/tree/main"><img width="650" src="https://github.com/f-corvaro/FT_PRINTF/blob/main/.extra/eval_10-2023(2).png">
 </p>
 <br>
 
-### Norminette Result
-
-```shell
-OK!
-```
-
-<br>
-
-### Moulinette Result
+### Moulinette Feedback
 
 <p align="justify">
 
-I made this project three times, the first one I failed because I did only the mandatory part and I worked on an Ubuntu system, so I failed for the condition void pointer. The second time I fixed the problem, I received a 100.
+I completed this project three times. The first time, I failed because I only did the mandatory part and worked on an Ubuntu system, which caused an issue with the void pointer condition. The second time, I fixed the problem and received a score of 100.
 
 <a href="https://projects.intra.42.fr/projects/42cursus-ft_printf/projects_users/3069521"><img align="center" src="https://github.com/f-corvaro/FT_PRINTF/blob/main/.extra/moulinette.png">
 
-The third time I made the bonus part, I got a 125. You can check it out on my intra page.
-
-</p>
-
-<br>
-
-## Treasure hunt
-
-<p align="justify">
-
-The code
-
-```
-++++++++++[>+>+++>+++++++>++++++++++<<<<-]>>>.>---.++++++++++++.++.+++
-+++.--.<<++.>>------.------------.+++++++++++++.<<.>>++++++.------------
-.-------. +++++++++++++++++++.<<.>>----------------.+++++.+++++++++.---
-----------.--.+ ++++++++++++++++.--------.+++++++++++++.<<.>>----------
--------------.+++.+++ ++++.---.----.+++++++++++++++++.---------------
---.-.<<.>>+++++.+++++.<<.>-------...
-```
-
-is made for the trasure hunt. The code is in Python and it is a program that prints the following text:
-
-```
-Treasure hunt!
-
-The next stop is:
-
-**In a hidden place,
-where the wind blows strong.**
-
-Good luck!
-```
-To decipher the code, you need to use a Python interpreter.
+The third time, I completed the bonus part and achieved a score of 125.
 
 </p>
 <br>
 
-## Support Me
-
-<p align="justify">
-Remember to ⭐ the repository.
-If you want to support me:</p>
-
-<p align="center">
-<a href="https://ko-fi.com/fcorvaro"><img width="180" img align="center" src="https://github.com/f-corvaro/42.common_core/blob/main/.extra/support-me-ko-fi.svg"><alt=""></a>
-<a href="https://github.com/sponsors/f-corvaro"><img width="180" img align="center" src="https://github.com/f-corvaro/42.common_core/blob/main/.extra/support-me-github.svg"><alt=""></a>
-
-<br>
-
-## Skills developed
+## Developed Skills
 
 <p align="center">
   <a href="https://skillicons.dev">
@@ -483,15 +436,27 @@ If you want to support me:</p>
   </a>
 </p><br>
 
-## Sources
+## References
 
-- [Variadic Functions 1](https://www.ibm.com/docs/en/i/7.3?topic=lf-va-arg-va-copy-va-end-va-start-handle-variable-argument-list)
-- [Variadic Functions 2](https://www.geeksforgeeks.org/variadic-functions-in-c/)
-- [Variadic Functions 3](https://onepunchcoder.medium.com/variadic-functions-explained-fd3b4ab6fd84)
-- [Makefile](https://www.gnu.org/software/make/manual/make.html#Rule-Introduction)
-- [printf 1](https://en.wikipedia.org/wiki/Printf)
-- [printf 2](https://www.geeksforgeeks.org/printf-in-c/)
-- [static library](https://dev.to/iamkhalil42/all-you-need-to-know-about-c-static-libraries-1o0b)
+- [IBM Documentation on Variadic Functions](https://www.ibm.com/docs/en/i/7.3?topic=lf-va-arg-va-copy-va-end-va-start-handle-variable-argument-list) - Comprehensive guide on handling variable argument lists in C.
+- [GeeksforGeeks: Variadic Functions](https://www.geeksforgeeks.org/variadic-functions-in-c/) - Tutorial on variadic functions with examples.
+- [Medium: Variadic Functions Explained](https://onepunchcoder.medium.com/variadic-functions-explained-fd3b4ab6fd84) - In-depth explanation of variadic functions.
+- [GNU Make Manual](https://www.gnu.org/software/make/manual/make.html#Rule-Introduction) - Official documentation for writing Makefiles.
+- [Wikipedia: printf](https://en.wikipedia.org/wiki/Printf) - Overview and history of the `printf` function.
+- [GeeksforGeeks: printf in C](https://www.geeksforgeeks.org/printf-in-c/) - Detailed guide on using `printf` in C.
+- [Dev.to: Static Libraries in C](https://dev.to/iamkhalil42/all-you-need-to-know-about-c-static-libraries-1o0b) - All you need to know about creating and using static libraries in C.
+  
+<br>
+
+## Support and Contributions
+
+<p align="center">
+If you find this repository helpful, please consider starring it to show your support. Your support is greatly appreciated!</p>
+
+<p align="center">
+<a href="https://ko-fi.com/fcorvaro"><img width="180" img align="center" src="https://github.com/f-corvaro/42.common_core/blob/main/.extra/support-me-ko-fi.svg"><alt=""></a>
+<a href="https://github.com/sponsors/f-corvaro"><img width="180" img align="center" src="https://github.com/f-corvaro/42.common_core/blob/main/.extra/support-me-github.svg"><alt=""></a>
+
 <br>
 
 ## Author
