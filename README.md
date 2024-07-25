@@ -226,6 +226,7 @@ You don't have to complete all the bonuses. You can choose from the following op
 <p align="justify">
 
 - Handle any combination of the following flags: `-0.` and the field minimum width for all conversions.
+  
  | Flag | Description |
  | ---- | ----------- |
  | `%0` | When the 'width' option is specified, prepends zeros for numeric types (default prepends spaces). For example, `printf("%4X", 3)` produces `   3`, while `printf("%04X", 3)` produces `0003`. |
