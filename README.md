@@ -10,19 +10,6 @@
     <a href="https://github.com/f-corvaro/FT_PRINTF"><img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/f-corvaro/FT_PRINTF?color=yellow" /></a>
 </p>
 
-<div align="center">
-
-v9 | v10
-:-------------------------:|:-------------------------:
-[![subject-old](https://img.shields.io/badge/subject-ft_printf_v09-blueviolet)](https://github.com/f-corvaro/FT_PRINTF/blob/main/.extra/en.subject.pdf) | [![subject-new](https://img.shields.io/badge/subject-ft_printf_v10-blueviolet)](https://github.com/f-corvaro/FT_PRINTF/blob/main/.extra/en.subject(new).pdf)
-
-</div>
-
-<div align="center">
-<table><tr><td>This guide is for subject v10. There are no differences between the two subjects.</td></tr></table>
-
-</div>
-
 <p align="center">
 
 **WARNING:** *Before pushing, ensure you know where the moulinette will be executed. The length and information printed by `printf` can differ between macOS and Ubuntu systems. If you choose `ft_printf_100`, verify where the moulinette runs. For `ft_printf_125`, there are two macro conditions that will validate your project on both systems.*
@@ -60,7 +47,6 @@ v9 | v10
  <a href="#installation">Installation</a><br>
  <a href="#usage">Usage</a><br>
  <a href="#evaluation-process">Evaluation Process</a><br>
- <a href="#correction-sheet">Correction Sheet</a><br>
  <a href="#moulinette-feedback">Moulinette Feedback</a><br>
  <a href="#developed-skills">Developed Skills</a><br>
  <a href="#references">References</a><br>
@@ -409,16 +395,6 @@ valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -s ./a.out
 <br>
 
 ## Evaluation Process
-
-### Correction Sheet
-
-<p align="center">
-<a href="https://github.com/f-corvaro/FT_PRINTF/tree/main"><img width="650" src="https://github.com/f-corvaro/FT_PRINTF/blob/main/.extra/eval_10-2023.png">
-</p>
-<p align="center">
-<a href="https://github.com/f-corvaro/FT_PRINTF/tree/main"><img width="650" src="https://github.com/f-corvaro/FT_PRINTF/blob/main/.extra/eval_10-2023(2).png">
-</p>
-<br>
 
 ### Moulinette Feedback
 
